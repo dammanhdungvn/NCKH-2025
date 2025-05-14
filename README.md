@@ -388,4 +388,8 @@ def extract_hoc_ky_code(ten_hoc_ky_str)
 - Hiển thị thông báo lỗi
 - Xử lý lỗi mạng
 - Xử lý lỗi validation
+<<<<<<< HEAD
 - Xử lý lỗi upload file 
+=======
+- Xử lý lỗi upload file 
+>>>>>>> db2c2a402a6831b2b517d3c08da67f0cf418754d
