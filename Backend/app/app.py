@@ -6,8 +6,6 @@ from datetime import datetime
 from werkzeug.utils import secure_filename
 from diem_converter import convert_excel_to_json
 
-# --- LLM Integration Imports ---
-# Assuming LLM files are in Backend/app/LLM relative to this file
 from LLM.utils import get_khaosat_data_from_file, get_diem_data_from_file
 from LLM.prompts import generate_prompt1_payload, generate_prompt2_payload, generate_prompt3_payload
 from LLM.ollama_interactions import call_ollama_stream_logic, ollama_chat_streaming
@@ -16,13 +14,11 @@ app = Flask(__name__)
 CORS(app)
 
 # --- Configuration ---
-# LLM Config (Update OLLAMA_API_URL if needed)
-OLLAMA_API_URL = "http://192.168.2.114:11434/api/chat" # Make sure this is accessible from the backend server
+OLLAMA_API_URL = "http://192.168.2.114:11434/api/chat" 
 OLLAMA_MODEL = "gemma2:2b"
-PATH_KHAOSAT = '../Database/khaosat.json' # Adjusted path
-PATH_DIEM = '../Database/diem.json' # Adjusted path
+PATH_KHAOSAT = '../Database/khaosat.json' 
+PATH_DIEM = '../Database/diem.json' 
 
-# --- Global States for LLM ---
 llm_analysis_results = {
     "stage1_khaosat": "",
     "stage2_diem": "",
@@ -174,6 +170,28 @@ def get_data(): # Diem data
         return jsonify(data)
     except Exception as e:
         print(f"Error in get_data: {e}")
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/get-khaosat-summary', methods=['GET'])
+def get_khaosat_summary():
+    """
+    API endpoint để lấy dữ liệu tóm tắt khảo sát.
+    Hiện tại, trả về bản ghi khảo sát đầu tiên (hoặc duy nhất).
+    """
+    try:
+        if not os.path.exists(PATH_KHAOSAT):
+            return jsonify({'error': 'Không tìm thấy file dữ liệu khảo sát.'}), 404
+            
+        with open(PATH_KHAOSAT, 'r', encoding='utf-8') as f:
+            khaosat_data_list = json.load(f)
+        
+        if not khaosat_data_list:
+            return jsonify({'error': 'File khảo sát rỗng.'}), 404
+            
+        # Trả về bản ghi đầu tiên (giả định là mới nhất hoặc duy nhất)
+        return jsonify(khaosat_data_list[0]) 
+    except Exception as e:
+        print(f"Error in get_khaosat_summary: {e}")
         return jsonify({'error': str(e)}), 500
 
 # --- New LLM Endpoints ---

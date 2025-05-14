@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Container,
@@ -9,23 +9,43 @@ import {
   alpha,
   keyframes
 } from '@mui/material';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 
-// Animation keyframes
+// Import logos
+import humgLogo from '../image/HUMG_Logo_transparency.png';
+import cnttLogo from '../image/Logo_CNTT1_High res.png';
+
+// Enhanced Animation keyframes
 const float = keyframes`
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
 `;
 
-const fadeIn = keyframes`
-  from { opacity: 0; }
-  to { opacity: 1; }
+const pulse = keyframes`
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+`;
+
+const gradientFlow = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 `;
 
 const LandingPage = () => {
   const theme = useTheme();
   const navigate = useNavigate();
+  const controls = useAnimation();
+
+  useEffect(() => {
+    controls.start({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8 }
+    });
+  }, [controls]);
 
   const handleStartSurvey = () => {
     navigate('/survey');
@@ -39,39 +59,102 @@ const LandingPage = () => {
     <Box
       sx={{
         minHeight: '100vh',
-        background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)}, ${alpha(theme.palette.primary.dark, 0.2)})`,
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        background: `linear-gradient(135deg, 
+          ${alpha(theme.palette.primary.main, 0.05)}, 
+          ${alpha(theme.palette.primary.dark, 0.1)})`,
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: `radial-gradient(circle at 50% 50%, 
+            ${alpha(theme.palette.primary.main, 0.1)} 0%, 
+            transparent 50%)`,
+          animation: `${pulse} 8s ease-in-out infinite`,
+          zIndex: 0
+        }
       }}
     >
-      {/* Logo */}
+      {/* Animated Background Particles */}
       <Box
-        component={motion.div}
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8 }}
         sx={{
           position: 'absolute',
-          top: 40,
-          left: 40,
-          zIndex: 1
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          overflow: 'hidden',
+          zIndex: 0,
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            width: '200%',
+            height: '200%',
+            background: `radial-gradient(circle at center, 
+              ${alpha(theme.palette.primary.main, 0.1)} 0%, 
+              transparent 50%)`,
+            animation: `${gradientFlow} 15s ease infinite`,
+            backgroundSize: '200% 200%'
+          }
+        }}
+      />
+
+      {/* HUMG Logo (Top-Left) */}
+      <motion.div
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        style={{
+          position: 'absolute',
+          top: '2rem',
+          left: '2rem',
+          zIndex: 2
         }}
       >
-        <Typography
-          variant="h4"
-          sx={{
-            fontWeight: 'bold',
-            color: theme.palette.primary.main,
-            textShadow: `2px 2px 4px ${alpha(theme.palette.primary.main, 0.3)}`,
-            fontFamily: 'Arial, sans-serif'
-          }}
-        >
-          HUMG
-        </Typography>
-      </Box>
+        <img 
+          src={humgLogo} 
+          alt="HUMG Logo" 
+          style={{ 
+            height: 'auto',
+            width: 'auto',
+            maxHeight: '80px',
+            maxWidth: '200px',
+            filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
+          }} 
+        />
+      </motion.div>
+
+      {/* CNTT Logo (Top-Right) */}
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        style={{
+          position: 'absolute',
+          top: '2rem',
+          right: '2rem',
+          zIndex: 2
+        }}
+      >
+        <img 
+          src={cnttLogo} 
+          alt="CNTT Logo" 
+          style={{ 
+            height: 'auto',
+            width: 'auto',
+            maxHeight: '70px',
+            maxWidth: '170px',
+            filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
+          }} 
+        />
+      </motion.div>
 
       {/* Main Content */}
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 1 }}>
         <Box
           sx={{
             minHeight: '100vh',
@@ -80,30 +163,56 @@ const LandingPage = () => {
             justifyContent: 'center',
             alignItems: 'center',
             textAlign: 'center',
-            py: 8
+            pt: { xs: 16, sm: 14, md: 12 },
+            pb: 8
           }}
         >
-          {/* Animated Title */}
+          {/* Conference Title */}
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            <Typography
+              variant="h4"
+              component="h2"
+              sx={{
+                fontWeight: 500,
+                mb: 2,
+                color: theme.palette.text.secondary,
+                letterSpacing: '0.5px',
+                textShadow: '0 2px 4px rgba(0,0,0,0.1)'
+              }}
+            >
+              Hội nghị Nghiên cứu Khoa học sinh viên lần thứ 38
+            </Typography>
+          </motion.div>
+
+          {/* Main Title */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
           >
             <Typography
               variant="h2"
               component="h1"
               sx={{
                 fontWeight: 'bold',
-                mb: 3,
-                background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
+                mb: 4,
+                background: `linear-gradient(45deg, 
+                  ${theme.palette.primary.main}, 
+                  ${theme.palette.primary.dark})`,
                 backgroundClip: 'text',
                 textFillColor: 'transparent',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                animation: `${float} 6s ease-in-out infinite`
+                animation: `${float} 6s ease-in-out infinite`,
+                textShadow: '0 4px 8px rgba(0,0,0,0.1)',
+                fontSize: { xs: '2.5rem', sm: '3rem', md: '3.5rem' }
               }}
             >
-              Hệ thống đánh giá và phân tích kỹ năng học tập
+              Khảo sát yếu tố ảnh hưởng đến học tập
             </Typography>
           </motion.div>
 
@@ -111,16 +220,17 @@ const LandingPage = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
           >
             <Typography
               variant="h5"
               sx={{
-                mb: 6,
+                mb: 8,
                 color: theme.palette.text.secondary,
                 maxWidth: '800px',
                 mx: 'auto',
-                animation: `${fadeIn} 1s ease-in`
+                lineHeight: 1.6,
+                fontWeight: 400
               }}
             >
               Tham gia khảo sát để giúp chúng tôi hiểu rõ hơn về các yếu tố ảnh hưởng đến quá trình học tập của sinh viên
@@ -128,12 +238,20 @@ const LandingPage = () => {
           </motion.div>
 
           {/* Button Container */}
-          <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: 2, alignItems: 'center' }}>
+          <Box 
+            sx={{ 
+              display: 'flex', 
+              flexDirection: { xs: 'column', sm: 'row' }, 
+              gap: 3,
+              alignItems: 'center',
+              mt: 2
+            }}
+          >
             {/* Start Survey Button */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ duration: 0.5, delay: 0.9 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -146,10 +264,14 @@ const LandingPage = () => {
                   py: 2,
                   fontSize: '1.2rem',
                   borderRadius: '50px',
-                  background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
+                  background: `linear-gradient(45deg, 
+                    ${theme.palette.primary.main}, 
+                    ${theme.palette.primary.dark})`,
                   boxShadow: `0 8px 16px ${alpha(theme.palette.primary.main, 0.3)}`,
                   '&:hover': {
-                    background: `linear-gradient(45deg, ${theme.palette.primary.dark}, ${theme.palette.primary.main})`,
+                    background: `linear-gradient(45deg, 
+                      ${theme.palette.primary.dark}, 
+                      ${theme.palette.primary.main})`,
                     boxShadow: `0 12px 20px ${alpha(theme.palette.primary.main, 0.4)}`
                   }
                 }}
@@ -162,7 +284,7 @@ const LandingPage = () => {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.7 }} // Slightly later delay
+              transition={{ duration: 0.5, delay: 1.1 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -178,10 +300,13 @@ const LandingPage = () => {
                   borderColor: theme.palette.secondary.main,
                   color: theme.palette.secondary.main,
                   borderWidth: 2,
+                  backdropFilter: 'blur(8px)',
+                  backgroundColor: alpha(theme.palette.background.paper, 0.8),
                   '&:hover': {
                     backgroundColor: alpha(theme.palette.secondary.main, 0.1),
                     borderColor: theme.palette.secondary.dark,
                     borderWidth: 2,
+                    boxShadow: `0 8px 16px ${alpha(theme.palette.secondary.main, 0.2)}`
                   }
                 }}
               >
@@ -189,21 +314,6 @@ const LandingPage = () => {
               </Button>
             </motion.div>
           </Box>
-
-          {/* Decorative Elements */}
-          <Box
-            sx={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              width: '100%',
-              height: '100%',
-              zIndex: -1,
-              opacity: 0.1,
-              background: `radial-gradient(circle at center, ${theme.palette.primary.main} 0%, transparent 70%)`
-            }}
-          />
         </Box>
       </Container>
     </Box>

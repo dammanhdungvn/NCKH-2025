@@ -2,51 +2,51 @@
     {
         "thong_tin_ca_nhan": {
             "ma_so_sinh_vien": "2221050359",
-            "gioi_tinh": "Nữ",
+            "gioi_tinh": "Nam",
             "khoa": "Công nghệ Thông tin",
-            "nam_hoc": "3",
-            "ho_ten": "Đàm Mạnh Dũng"
+            "nam_hoc": "4",
+            "ho_ten": "Đàm Mạnh Dũng "
         },
-        "thoi_gian_nop": "2025-05-12 19:52:51",
+        "thoi_gian_nop": "2025-05-14 11:47:06",
         "Thai_do_hoc_tap": {
             "tong_so_cau_hoi": 5,
-            "phan_tram_diem": 20.0
+            "phan_tram_diem": 64.0
         },
         "Su_dung_mang_xa_hoi": {
             "tong_so_cau_hoi": 5,
-            "phan_tram_diem": 32.0
+            "phan_tram_diem": 44.0
         },
         "Gia_dinh_Xa_hoi": {
             "tong_so_cau_hoi": 5,
-            "phan_tram_diem": 60.0
+            "phan_tram_diem": 72.0
         },
         "Ban_be": {
             "tong_so_cau_hoi": 5,
-            "phan_tram_diem": 80.0
+            "phan_tram_diem": 68.0
         },
         "Moi_truong_hoc_tap": {
             "tong_so_cau_hoi": 5,
-            "phan_tram_diem": 100.0
+            "phan_tram_diem": 76.0
         },
         "Quan_ly_thoi_gian": {
             "tong_so_cau_hoi": 4,
-            "phan_tram_diem": 20.0
+            "phan_tram_diem": 80.0
         },
         "Tu_hoc": {
             "tong_so_cau_hoi": 4,
-            "phan_tram_diem": 40.0
+            "phan_tram_diem": 65.0
         },
         "Hop_tac_nhom": {
             "tong_so_cau_hoi": 4,
-            "phan_tram_diem": 60.0
+            "phan_tram_diem": 75.0
         },
         "Tu_duy_phan_bien": {
             "tong_so_cau_hoi": 4,
-            "phan_tram_diem": 80.0
+            "phan_tram_diem": 55.0
         },
         "Tiep_thu_xu_ly_kien_thuc": {
             "tong_so_cau_hoi": 4,
-            "phan_tram_diem": 100.0
+            "phan_tram_diem": 85.0
         }
     }
 ]
