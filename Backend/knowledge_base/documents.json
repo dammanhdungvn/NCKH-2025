@@ -1,0 +1,72 @@
+{
+  "documents": [
+    "Sinh viên Công nghệ thông tin thường có điểm mạnh trong tư duy logic, giải quyết vấn đề và làm việc với công nghệ. Các lĩnh vực phát triển bao gồm: Phát triển phần mềm, An ninh mạng, Khoa học dữ liệu, AI/ML, DevOps.",
+    "Sinh viên Kinh tế thường có điểm mạnh trong phân tích, giao tiếp và hiểu biết thị trường. Định hướng nghề nghiệp: Phân tích tài chính, Marketing, Tư vấn kinh doanh, Quản lý dự án, Ngân hàng.",
+    "Kỹ năng quản lý thời gian kém (dưới 60%) thường dẫn đến stress học tập và hiệu suất thấp. Giải pháp: Sử dụng Pomodoro Technique, lập kế hoạch hàng tuần, ưu tiên việc quan trọng.",
+    "Sinh viên có điểm tư duy phản biện cao (trên 80%) thường thành công trong các ngành yêu cầu phân tích sâu: Nghiên cứu, Tư vấn, Luật, Y khoa, Báo chí điều tra.",
+    "Hệ thống điểm Việt Nam: A+ (9.5-10), A (8.5-9.4), B+ (7.8-8.4), B (7.0-7.7), C+ (6.5-6.9), C (5.5-6.4), D+ (4.5-5.4), D (4.0-4.4), F (<4.0). Điểm B+ trở lên được coi là thành tích tốt.",
+    "Sinh viên có kỹ năng làm việc nhóm tốt (trên 75%) thường phù hợp với vai trò: Team Lead, Project Manager, Scrum Master, Sales, HR, Giảng dạy.",
+    "Môi trường học tập kém ảnh hưởng trực tiếp đến kết quả học tập. Giải pháp: Tìm không gian yên tĩnh, loại bỏ yếu tố phân tâm, tham gia study group, sử dụng thư viện.",
+    "Việc sử dụng mạng xã hội quá mức (trên 4 giờ/ngày) có thể ảnh hưởng tiêu cực đến học tập. Cần cân bằng và sử dụng có mục đích cho việc học."
+  ],
+  "metadata": [
+    {
+      "khoa": "Công nghệ thông tin",
+      "type": "strength_analysis",
+      "keywords": [
+        "CNTT",
+        "programming",
+        "logic"
+      ]
+    },
+    {
+      "khoa": "Kinh tế",
+      "type": "career_guidance",
+      "keywords": [
+        "economics",
+        "business",
+        "finance"
+      ]
+    },
+    {
+      "skill": "Quan_ly_thoi_gian",
+      "type": "improvement_strategy",
+      "level": "foundational"
+    },
+    {
+      "skill": "Tu_duy_phan_bien",
+      "type": "career_mapping",
+      "level": "proficient"
+    },
+    {
+      "type": "grading_system",
+      "context": "vietnamese_education",
+      "keywords": [
+        "grading",
+        "assessment"
+      ]
+    },
+    {
+      "skill": "Hop_tac_nhom",
+      "type": "career_mapping",
+      "level": "developing"
+    },
+    {
+      "skill": "Moi_truong_hoc_tap",
+      "type": "improvement_strategy",
+      "keywords": [
+        "environment",
+        "study_space"
+      ]
+    },
+    {
+      "skill": "Su_dung_mang_xa_hoi",
+      "type": "balance_strategy",
+      "keywords": [
+        "social_media",
+        "digital_balance"
+      ]
+    }
+  ],
+  "last_updated": "2025-06-02T17:57:47.502653"
+}

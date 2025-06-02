@@ -1,0 +1,147 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Flask
+instance/
+.webassets-cache
+flask.log
+*.log
+
+# Node.js & React
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+package-lock.json
+yarn.lock
+
+# React Build
+Frontend/build/
+Frontend/dist/
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# AI/ML Models & Data
+ollama_models/
+ollama_sessions/
+*.pkl
+*.bin
+*.model
+*.h5
+*.weights
+cache_data/
+vectors/
+models/
+
+# Cache & Temporary Files
+cache/
+*.cache
+.cache/
+temp/
+tmp/
+
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
+
+# Docker
+.dockerignore
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup Files
+*.bak
+*.backup
+*.old
+
+# Test Coverage
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Security & Sensitive Data
+*.key
+*.pem
+*.crt
+config.json
+secrets.json
+
+# Large Files & Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Project Specific
+# Knowledge base files (if they contain sensitive data)
+# knowledge_base/
+# documents.json
+
+# Uncomment below if you want to ignore specific cache directories
+# Backend/app/cache_data/
+# Backend/cache_data/
+
+# Uncomment below if you want to ignore AI model files
+# Backend/app/data/models/
+# Backend/app/data/vectors/

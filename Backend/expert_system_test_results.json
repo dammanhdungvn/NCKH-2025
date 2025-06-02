@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-06-02T12:09:37.603990",
+  "performance": {
+    "total_time": 0.010273456573486328,
+    "analysis_time": 0.010170459747314453,
+    "target_met": true
+  },
+  "quality": {
+    "total_length": 0,
+    "avg_length_per_stage": 0.0,
+    "stages": {
+      "skills_assessment": 0,
+      "academic_analysis": 0,
+      "executive_consultation": 0
+    }
+  },
+  "outputs": {
+    "stage1_khaosat": "",
+    "stage2_diem": "",
+    "stage3_tonghop": ""
+  }
+}

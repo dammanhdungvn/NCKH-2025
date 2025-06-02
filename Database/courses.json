@@ -1,0 +1,85 @@
+[
+  {
+    "id": 1,
+    "title": "Khoa học Máy tính",
+    "category": "STEM",
+    "description": "Ngành học về thuật toán, lập trình và công nghệ thông tin",
+    "prerequisites": [
+      "Toán học mạnh",
+      "Tư duy logic"
+    ],
+    "career_prospects": [
+      "Lập trình viên",
+      "Kỹ sư phần mềm",
+      "Data Scientist"
+    ],
+    "difficulty_level": 8,
+    "duration_years": 4,
+    "skills_required": [
+      "Tư duy logic",
+      "Giải quyết vấn đề",
+      "Toán học"
+    ],
+    "universities": [
+      "Đại học Bách Khoa",
+      "Đại học Công nghệ",
+      "Đại học Quốc gia"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Ngôn ngữ Anh",
+    "category": "Humanities",
+    "description": "Ngành học về ngôn ngữ, văn học và văn hóa Anh-Mỹ",
+    "prerequisites": [
+      "Khả năng ngoại ngữ",
+      "Kỹ năng giao tiếp"
+    ],
+    "career_prospects": [
+      "Giáo viên",
+      "Phiên dịch",
+      "Nhà báo"
+    ],
+    "difficulty_level": 6,
+    "duration_years": 4,
+    "skills_required": [
+      "Giao tiếp",
+      "Viết lách",
+      "Phân tích văn bản"
+    ],
+    "universities": [
+      "Đại học Ngoại ngữ",
+      "Đại học Sư phạm",
+      "Đại học Khoa học Xã hội"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Kỹ thuật Cơ khí",
+    "category": "Engineering",
+    "description": "Ngành học về thiết kế, chế tạo và vận hành máy móc",
+    "prerequisites": [
+      "Vật lý",
+      "Toán học",
+      "Tư duy không gian"
+    ],
+    "career_prospects": [
+      "Kỹ sư cơ khí",
+      "Thiết kế sản phẩm",
+      "Quản lý sản xuất"
+    ],
+    "difficulty_level": 9,
+    "duration_years": 4,
+    "skills_required": [
+      "Toán học",
+      "Vật lý",
+      "Thiết kế",
+      "Tư duy không gian"
+    ],
+    "universities": [
+      "Đại học Bách Khoa",
+      "Đại học Công nghiệp",
+      "Đại học Kỹ thuật"
+    ]
+  }
+]

@@ -1,0 +1,218 @@
+{
+    "data": {
+        "ds_diem_hocky": [
+            {
+                "ten_hoc_ky": "Học kỳ 1 - Năm học 2022 - 2023",
+                "dtb_tich_luy_he_4": "2.98",
+                "ds_diem_mon_hoc": [
+                    {
+                        "ten_mon": "Đại số tuyến tính",
+                        "diem_tk_chu": "C"
+                    },
+                    {
+                        "ten_mon": "Giải tích 1",
+                        "diem_tk_chu": "B"
+                    },
+                    {
+                        "ten_mon": "Xác suất thống kê",
+                        "diem_tk_chu": "B"
+                    },
+                    {
+                        "ten_mon": "Giáo dục thể chất 1",
+                        "diem_tk_chu": "A"
+                    },
+                    {
+                        "ten_mon": "Triết học Mác - Lênin",
+                        "diem_tk_chu": "A"
+                    },
+                    {
+                        "ten_mon": "Nhập môn ngành CNTT",
+                        "diem_tk_chu": "B+"
+                    }
+                ]
+            },
+            {
+                "ten_hoc_ky": "Học kỳ 2 - Năm học 2022 - 2023",
+                "dtb_tich_luy_he_4": "2.86",
+                "ds_diem_mon_hoc": [
+                    {
+                        "ten_mon": "Giải tích 2",
+                        "diem_tk_chu": "A+"
+                    },
+                    {
+                        "ten_mon": "Phương pháp tính",
+                        "diem_tk_chu": "B"
+                    },
+                    {
+                        "ten_mon": "Thí nghiệm vật lý 1",
+                        "diem_tk_chu": "C"
+                    },
+                    {
+                        "ten_mon": "Vật lý đại cương 1",
+                        "diem_tk_chu": "D"
+                    },
+                    {
+                        "ten_mon": "Tiếng Anh 1",
+                        "diem_tk_chu": "B"
+                    },
+                    {
+                        "ten_mon": "Giáo dục thể chất 2",
+                        "diem_tk_chu": "C+"
+                    },
+                    {
+                        "ten_mon": "Kinh tế chính trị Mác - Lênin",
+                        "diem_tk_chu": "C"
+                    },
+                    {
+                        "ten_mon": "Cơ sở lập trình",
+                        "diem_tk_chu": "A"
+                    },
+                    {
+                        "ten_mon": "Đường lối quốc phòng và an ninh của Đảng CSVN",
+                        "diem_tk_chu": "C"
+                    },
+                    {
+                        "ten_mon": "Công tác quốc phòng và an ninh",
+                        "diem_tk_chu": "C+"
+                    },
+                    {
+                        "ten_mon": "Quân sự chung",
+                        "diem_tk_chu": "B+"
+                    },
+                    {
+                        "ten_mon": "Kỹ thuật bắn súng tiểu liên AK và chiến thuật",
+                        "diem_tk_chu": "B+"
+                    }
+                ]
+            },
+            {
+                "ten_hoc_ky": "Học kỳ 1 - Năm học 2023 - 2024",
+                "dtb_tich_luy_he_4": "2.98",
+                "ds_diem_mon_hoc": [
+                    {
+                        "ten_mon": "Hóa học đại cương phần 1 + TN",
+                        "diem_tk_chu": "B+"
+                    },
+                    {
+                        "ten_mon": "Giáo dục thể chất 3",
+                        "diem_tk_chu": "C"
+                    },
+                    {
+                        "ten_mon": "Tư tưởng Hồ Chí Minh",
+                        "diem_tk_chu": "B"
+                    },
+                    {
+                        "ten_mon": "Chủ nghĩa xã hội khoa học",
+                        "diem_tk_chu": "C"
+                    },
+                    {
+                        "ten_mon": "Nguyên lý Hệ điều hành",
+                        "diem_tk_chu": "B"
+                    },
+                    {
+                        "ten_mon": "Toán rời rạc cho CNTT",
+                        "diem_tk_chu": "B"
+                    },
+                    {
+                        "ten_mon": "Cơ sở dữ liệu",
+                        "diem_tk_chu": "A"
+                    },
+                    {
+                        "ten_mon": "Kỹ thuật lập trình hướng đối tượng với C++ + BTL",
+                        "diem_tk_chu": "B+"
+                    },
+                    {
+                        "ten_mon": "Tối ưu hóa thuật toán",
+                        "diem_tk_chu": "B"
+                    },
+                    {
+                        "ten_mon": "Kiến trúc máy tính",
+                        "diem_tk_chu": "A"
+                    }
+                ]
+            },
+            {
+                "ten_hoc_ky": "Học kỳ 2 - Năm học 2023 - 2024",
+                "dtb_tich_luy_he_4": "3.10",
+                "ds_diem_mon_hoc": [
+                    {
+                        "ten_mon": "Tiếng Anh 2",
+                        "diem_tk_chu": "B+"
+                    },
+                    {
+                        "ten_mon": "Pháp luật đại cương",
+                        "diem_tk_chu": "C+"
+                    },
+                    {
+                        "ten_mon": "Lịch sử Đảng Cộng sản Việt Nam",
+                        "diem_tk_chu": "B"
+                    },
+                    {
+                        "ten_mon": "Trí tuệ nhân tạo + BTL",
+                        "diem_tk_chu": "A+"
+                    },
+                    {
+                        "ten_mon": "Cấu trúc dữ liệu và giải thuật",
+                        "diem_tk_chu": "B+"
+                    },
+                    {
+                        "ten_mon": "Hệ quản trị cơ sở dữ liệu",
+                        "diem_tk_chu": "A"
+                    },
+                    {
+                        "ten_mon": "Lập trình hướng đối tượng với Java",
+                        "diem_tk_chu": "B"
+                    },
+                    {
+                        "ten_mon": "Thương mại điện tử",
+                        "diem_tk_chu": "B"
+                    },
+                    {
+                        "ten_mon": "Mạng máy tính + BTL",
+                        "diem_tk_chu": "A+"
+                    }
+                ]
+            },
+            {
+                "ten_hoc_ky": "Học kỳ 1 - Năm học 2024 - 2025",
+                "dtb_tich_luy_he_4": "3.21",
+                "ds_diem_mon_hoc": [
+                    {
+                        "ten_mon": "Mã nguồn mở",
+                        "diem_tk_chu": "C+"
+                    },
+                    {
+                        "ten_mon": "Phát triển ứng dụng Web + BTL",
+                        "diem_tk_chu": "A+"
+                    },
+                    {
+                        "ten_mon": "Kho dữ liệu",
+                        "diem_tk_chu": "A+"
+                    },
+                    {
+                        "ten_mon": "Khoa học dữ liệu",
+                        "diem_tk_chu": "A"
+                    },
+                    {
+                        "ten_mon": "Cơ sở an ninh mạng",
+                        "diem_tk_chu": "A+"
+                    },
+                    {
+                        "ten_mon": "Kiến trúc và hạ tầng mạng IoT",
+                        "diem_tk_chu": "A+"
+                    }
+                ]
+            },
+            {
+                "ten_hoc_ky": "Học kỳ 2 - Năm học 2024 - 2025",
+                "dtb_tich_luy_he_4": "3.20",
+                "ds_diem_mon_hoc": [
+                    {
+                        "ten_mon": "Phát triển ứng dụng IoT",
+                        "diem_tk_chu": "B"
+                    }
+                ]
+            }
+        ]
+    }
+}
