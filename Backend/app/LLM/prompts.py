@@ -23,6 +23,25 @@ GENERAL_EDUCATION_KEYWORDS = [
     "Kỹ thuật bắn súng"
 ]
 
+# Grade letter to GPA conversion
+GRADE_TO_GPA = {
+    "A+": 4.0, "A": 3.7, "B+": 3.5, "B": 3.0, "C+": 2.5, 
+    "C": 2.0, "D+": 1.5, "D": 1.0, "F": 0.0
+}
+
+
+def convert_grade_letter_to_gpa(grade_letter: str) -> float:
+    """
+    Convert grade letter to GPA score.
+    
+    Args:
+        grade_letter (str): Grade letter (A+, A, B+, B, C+, C, D+, D, F)
+        
+    Returns:
+        float: GPA score
+    """
+    return GRADE_TO_GPA.get(grade_letter.upper(), 0.0)
+
 
 def generate_prompt1_payload(khaosat_info: Dict[str, Any], ollama_model: str) -> Dict[str, Any]:
     """
@@ -67,7 +86,7 @@ def generate_prompt2_payload(
     Generate prompt payload for stage 2: Academic performance analysis.
     
     Args:
-        all_subjects (List[Dict[str, Any]]): List of all subject data
+        all_subjects (List[Dict[str, Any]]): List of all subject data from diemllm.json
         khaosat_info (Dict[str, Any]): Survey information data
         ollama_model (str): Name of the Ollama model to use
         
@@ -76,9 +95,11 @@ def generate_prompt2_payload(
     """
     # Filter out general education courses
     specialized_subjects = _filter_specialized_subjects(all_subjects)
+    print(f"📊 Filtered subjects: {len(all_subjects)} → {len(specialized_subjects)} specialized subjects")
     
     # Format subjects for prompt
     subjects_text = _format_subjects_for_prompt(specialized_subjects)
+    print(f"📝 Formatted {len(specialized_subjects)} subjects for LLM prompt")
     
     personal_info = khaosat_info.get("thong_tin_ca_nhan", {})
     department = personal_info.get('khoa', 'Chưa rõ thông tin khoa')
@@ -140,7 +161,7 @@ def _filter_specialized_subjects(all_subjects: List[Dict[str, Any]]) -> List[Dic
     Filter out general education courses from subject list.
     
     Args:
-        all_subjects (List[Dict[str, Any]]): List of all subjects
+        all_subjects (List[Dict[str, Any]]): List of all subjects from diemllm.json
         
     Returns:
         List[Dict[str, Any]]: Filtered list of specialized subjects
@@ -156,6 +177,9 @@ def _filter_specialized_subjects(all_subjects: List[Dict[str, Any]]) -> List[Dic
         
         if not is_general_education:
             specialized_subjects.append(subject)
+            print(f"✅ Specialized: {subject['ten_mon']} - {subject['diem_tk_chu']}")
+        else:
+            print(f"🚫 General education (filtered): {subject['ten_mon']}")
     
     return specialized_subjects
 
@@ -165,7 +189,7 @@ def _format_subjects_for_prompt(subjects: List[Dict[str, Any]]) -> str:
     Format subject data for inclusion in prompts.
     
     Args:
-        subjects (List[Dict[str, Any]]): List of subjects
+        subjects (List[Dict[str, Any]]): List of subjects from diemllm.json
         
     Returns:
         str: Formatted subject text
@@ -173,11 +197,18 @@ def _format_subjects_for_prompt(subjects: List[Dict[str, Any]]) -> str:
     if not subjects:
         return "Không có môn học chuyên ngành nào được tìm thấy sau khi lọc bỏ các môn đại cương chung."
     
-    return "\n".join([
-        f"- Tên môn: {subject['ten_mon']}, Điểm hệ 4: {subject['diem_tk_so']:.1f} "
-        f"(Điểm chữ: {subject['diem_tk_chu']}), Số tín chỉ: {subject['so_tin_chi']}"
-        for subject in subjects
-    ])
+    formatted_lines = []
+    for subject in subjects:
+        # Convert grade letter to GPA
+        grade_letter = subject.get('diem_tk_chu', 'F')
+        gpa_score = convert_grade_letter_to_gpa(grade_letter)
+        
+        line = (f"- Tên môn: {subject['ten_mon']}, Điểm hệ 4: {gpa_score:.1f} "
+                f"(Điểm chữ: {grade_letter}), Số tín chỉ: {subject['so_tin_chi']}")
+        formatted_lines.append(line)
+        print(f"📋 Formatted: {subject['ten_mon']} - {grade_letter} → {gpa_score:.1f}")
+    
+    return "\n".join(formatted_lines)
 
 
 def _build_stage1_system_prompt() -> str:
@@ -347,3 +378,100 @@ Dựa trên việc **tổng hợp và kết nối thông tin** từ hai báo cá
     * Đưa ra lời khuyên cuối cùng để sinh viên tự tin, chủ động.
 
 Hãy đảm bảo câu trả lời khoa học, logic, dễ hiểu và hữu ích, và đi sâu vào từng khía cạnh để phân tích, dùng các icon phù hợp và chuyên nghiệp trong câu trả lời."""
+
+
+# if __name__ == "__main__":
+#     # Test code để in ra dữ liệu THỰC TẾ mà app.py gửi tới prompts.py
+#     import sys
+#     import os
+    
+#     # Add path để import được các module khác
+#     sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+    
+#     from utils import get_diem_data_from_file
+    
+#     # Sử dụng ĐÚNG đường dẫn như trong app.py
+#     DATABASE_DIR = os.path.join('..', '..', '..', 'Database')
+#     PATH_DIEM_LLM = os.path.join(DATABASE_DIR, 'diemllm.json')
+    
+#     print("🔍 TEST: Dữ liệu THỰC TẾ mà app.py gửi tới prompts.py")
+#     print("=" * 60)
+#     print(f"📁 Đường dẫn: {os.path.abspath(PATH_DIEM_LLM)}")
+#     print(f"📁 File exists: {os.path.exists(PATH_DIEM_LLM)}")
+#     print()
+    
+#     # Đọc dữ liệu GIỐNG HỆT trong app.py dòng 301
+#     print("📖 Gọi: get_diem_data_from_file(PATH_DIEM_LLM)")
+#     diem_data = get_diem_data_from_file(PATH_DIEM_LLM)
+    
+#     if diem_data:
+#         print(f"✅ Thành công! get_diem_data_from_file() trả về: {type(diem_data)}")
+#         print(f"📊 Số lượng môn học: {len(diem_data)}")
+#         print()
+        
+#         # In ra cấu trúc dữ liệu thực tế
+#         print("🔍 CẤU TRÚC DỮ LIỆU THỰC TẾ:")
+#         print("-" * 40)
+#         if len(diem_data) > 0:
+#             print("Ví dụ 1 môn học đầu tiên:")
+#             first_subject = diem_data[0]
+#             print(f"Type: {type(first_subject)}")
+#             print(f"Keys: {list(first_subject.keys())}")
+#             print(f"Content: {first_subject}")
+#             print()
+            
+#         # In ra 5 môn đầu tiên
+#         print("📝 DANH SÁCH 5 MÔN HỌC ĐẦU TIÊN:")
+#         print("-" * 40)
+#         for i, subject in enumerate(diem_data[:5]):
+#             print(f"{i+1}. {subject}")
+#             print()
+        
+#         # Test thực tế generate_prompt2_payload như trong app.py
+#         print("🤖 TEST THỰC TẾ GENERATE_PROMPT2_PAYLOAD:")
+#         print("-" * 40)
+        
+#         # Mock khaosat_info như trong app.py
+#         mock_khaosat_info = {
+#             "thong_tin_ca_nhan": {
+#                 "ho_ten": "Test Student", 
+#                 "khoa": "Công nghệ thông tin"
+#             }
+#         }
+        
+#         try:
+#             # Gọi ĐÚNG hàm như trong app.py dòng 308
+#             payload2 = generate_prompt2_payload(diem_data, mock_khaosat_info, "test-model")
+#             print("✅ generate_prompt2_payload() thành công!")
+#             print(f"📊 Payload type: {type(payload2)}")
+#             print(f"🔑 Payload keys: {list(payload2.keys())}")
+            
+#             # Extract user prompt để thấy dữ liệu cuối cùng gửi cho LLM
+#             if 'messages' in payload2 and len(payload2['messages']) > 1:
+#                 user_message = payload2['messages'][1]['content']
+#                 print("\n📝 NỘI DUNG CUỐI CÙNG GỬI CHO LLM:")
+#                 print("-" * 40)
+#                 # In ra 1000 ký tự đầu của prompt
+#                 print(user_message[:1000] + "..." if len(user_message) > 1000 else user_message)
+                
+#         except Exception as e:
+#             print(f"❌ Lỗi khi gọi generate_prompt2_payload(): {e}")
+#             print(f"📋 Chi tiết lỗi: {type(e).__name__}")
+#             import traceback
+#             traceback.print_exc()
+            
+#     else:
+#         print("❌ get_diem_data_from_file() trả về None hoặc empty")
+#         print("🔍 Kiểm tra file diemllm.json:")
+        
+#         if os.path.exists(PATH_DIEM_LLM):
+#             try:
+#                 with open(PATH_DIEM_LLM, 'r', encoding='utf-8') as f:
+#                     raw_content = f.read()
+#                 print(f"📄 File size: {len(raw_content)} ký tự")
+#                 print(f"📄 500 ký tự đầu:")
+#                 print(raw_content[:500])
+#             except Exception as e:
+#                 print(f"❌ Không thể đọc file: {e}")
+#         else:
+#             print("❌ File không tồn tại!")
