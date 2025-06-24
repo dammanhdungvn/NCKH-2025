@@ -267,7 +267,7 @@ Dự án này được phát hành dưới giấy phép [MIT License](LICENSE).
 
 - [Flask Documentation](https://flask.palletsprojects.com/)
 - [React Documentation](https://react.dev/)
-- [Ollama API Documentation](https://ollama.ai/docs)
+- [Ollama API Documentation](https://github.com/ollama/ollama/blob/main/docs/api.md)
 - [Pandas Documentation](https://pandas.pydata.org/docs/)
 
 ---
