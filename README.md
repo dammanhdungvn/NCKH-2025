@@ -247,15 +247,11 @@ npm start
 - [ ] Tích hợp với LMS
 - [ ] Mobile app companion
 
-## 🤝 Đóng góp
+## Video Demo
 
-Chúng tôi hoan nghênh mọi đóng góp từ cộng đồng! Để đóng góp:
+[![🎬 Xem video demo trên YouTube](https://img.youtube.com/vi/vOCOzLpUNrc/0.jpg)](https://youtu.be/vOCOzLpUNrc)
 
-1. Fork repository này
-2. Tạo branch mới cho tính năng của bạn
-3. Commit các thay đổi
-4. Push lên branch
-5. Tạo Pull Request
+*Click vào ảnh để xem video demo trên YouTube*
 
 ## 📞 Liên hệ và hỗ trợ
 
@@ -266,12 +262,6 @@ Chúng tôi hoan nghênh mọi đóng góp từ cộng đồng! Để đóng gó
 ## 📄 Giấy phép
 
 Dự án này được phát hành dưới giấy phép [MIT License](LICENSE).
-
-## Video Demo
-
-[![🎬 Xem video demo trên YouTube](https://img.youtube.com/vi/vOCOzLpUNrc/0.jpg)](https://youtu.be/vOCOzLpUNrc)
-
-*Click vào ảnh để xem video demo trên YouTube*
 
 ## 📚 Tài liệu tham khảo
 
