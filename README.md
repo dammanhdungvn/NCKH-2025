@@ -269,8 +269,9 @@ Dự án này được phát hành dưới giấy phép [MIT License](LICENSE).
 
 ## Video Demo
 
-[🎬 Xem video demo](./video_demo.mp4)
+[![🎬 Xem video demo trên YouTube](https://img.youtube.com/vi/vOCOzLpUNrc/0.jpg)](https://youtu.be/vOCOzLpUNrc)
 
+*Click vào ảnh để xem video demo trên YouTube*
 
 ## 📚 Tài liệu tham khảo
 
