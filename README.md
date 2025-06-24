@@ -267,6 +267,11 @@ Chúng tôi hoan nghênh mọi đóng góp từ cộng đồng! Để đóng gó
 
 Dự án này được phát hành dưới giấy phép [MIT License](LICENSE).
 
+## Video Demo
+
+[🎬 Xem video demo](./video_demo.mp4)
+
+
 ## 📚 Tài liệu tham khảo
 
 - [Flask Documentation](https://flask.palletsprojects.com/)
